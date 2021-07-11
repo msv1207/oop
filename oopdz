@@ -1,0 +1,56 @@
+<?php
+abstract class MultiC {
+ function multiConor()
+ {
+     return "фигура : 4-угольник" . "\n";
+ }
+} 
+class Pram extends MultiC {
+
+    protected $shape;
+    protected $c;
+    protected $a;
+    protected $b;
+    protected $d;
+
+    public function get_side($a){
+        $this->a = $a;
+    }
+    public function get_sideb($b){
+        $this->b = $b;
+    }
+    public function get_sidec($c){
+        $this->c = $c;
+    }
+    public function get_sided($d){
+        $this->d = $d;
+    }
+    protected function IsProm(){
+        
+        return ($this->a == $this->b && $this->c == $this->d)  || ($this->a==$this->c && $this->d == $this->b) ? "фигура : " . $this->shape = "прямоугольник" . "\n" : null;
+     
+    }
+  
+
+    
+
+}
+
+class kvadrat extends Pram {
+    protected function get_shape(){
+        return ($this->a == $this->b) && ($this->a==$this->c) && ($this->d == $this->a) ?  "фигура : " . $this->shape = "квадрат" . "\n" :  null;
+     }
+    public function IsShape(){
+
+            return parent::multiConor() . parent::IsProm() . $this->get_shape();
+
+    }
+
+}
+
+$petya = new kvadrat();
+$petya->get_side(6);
+$petya->get_sideb(6);
+$petya->get_sidec(7);
+$petya->get_sided(7);
+echo $petya->IsShape();
